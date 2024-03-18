@@ -6,14 +6,14 @@ import handtrackingmodule as htm
 
 brushthickness=10
 eraserthickness=60
-folderpath='Untitled design'
+folderpath=r'C:\Users\Shrey patel\Documents\GitHub\gorosei\PROJECTS\indivisualProjects\Untitled design'
 my_list=sorted(os.listdir(folderpath))
 print(my_list)
 overlaylist=[]
 for impath in my_list:
     image=cv2.imread(f'{folderpath}/{impath}')
     overlaylist.append(image)
-header=overlaylist[1]
+header=overlaylist[0]
 print(header.shape)
 header=cv2.resize(header,(1280,125))
 drawcolor=(255,0,255)
@@ -56,16 +56,16 @@ while True:
             #checking for the click
             if y1<125:
                 if 250<x1<450:
-                    header=overlaylist[2]
+                    header=overlaylist[1]
                     drawcolor=(0,0,255)
                 elif 550<x1<750:
-                    header=overlaylist[3]
+                    header=overlaylist[2]
                     drawcolor=(255,26,0)
                 elif 800<x1<950:
-                    header=overlaylist[4]
+                    header=overlaylist[3]
                     drawcolor=(255,0,143)
-                elif 1050<x1<1200:
-                    header=overlaylist[5]
+                elif 1050<x1:
+                    header=overlaylist[4]
                     drawcolor=(0,0,0)
             cv2.rectangle(frame, (x1, y1 - 20), (x2, y2 + 20), drawcolor, -1)
 

@@ -9,7 +9,7 @@ cap = cv2.VideoCapture(0)
 cap.set(3,width)
 cap.set(4,height)
 #get the list of images of ppt
-folderpath='/Users/swayamsingal/Desktop/Programming/gorosei/PROJECTS/indivisualProjects/gorosei_resources'
+folderpath=r'C:\Users\Shrey patel\Documents\GitHub\gorosei\PROJECTS\indivisualProjects\gorosei_resources'
 pathimages=sorted(os.listdir(folderpath))
 print(pathimages)
 #variables
@@ -81,8 +81,10 @@ while(True):
     imgcurrent[0:heigthsmall,w-widthsmall:w] = imgsmall  #basic overlay
     if success:
         cv2.imshow('us :D ',img)
+        imgcurrent=cv2.resize(imgcurrent,None,fx=0.8,fy=0.8)
         cv2.imshow("slides",imgcurrent)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
+
+        if cv2.waitKey(5) & 0xFF == ord('q'):
             break
     else:
         break
